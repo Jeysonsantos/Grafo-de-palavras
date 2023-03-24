@@ -1,2 +1,2 @@
 # Grafo-de-palavras
- Manipulando palavras com grafo
+ Manipulando textos com a estrutura de dados grafo
