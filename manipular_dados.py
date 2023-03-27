@@ -32,7 +32,7 @@ def tokenizar(frase):
 #------------------------------------------------------------------------------------------------------
 
 def tratar_dados():
-    dataset = pd.read_excel("C:\\Users\\Teteu\\Desktop\\arvore-python\\licoes_aprendidas.xlsx")
+    dataset = pd.read_excel("licoes_aprendidas.xlsx")
     
     dataset = dataset.drop_duplicates()
     dataset = dataset.dropna()
@@ -43,6 +43,28 @@ def tratar_dados():
         for i in range(len(lista)):
             lista[i] = lista[i].lower()
     return dataset_list
+
+#------------------------------------------------------------------------------------------------------
+
+def freq_palavras(dataset_list):    
+    freq_palavras ={}
+    for frase in dataset_list:
+        for palavra in frase:
+            if(palavra in freq_palavras):
+                freq_palavras[palavra] = freq_palavras[palavra] + 1
+            else:
+                freq_palavras[palavra] = 1
+    
+    return freq_palavras
+#------------------------------------------------------------------------------------------------------
+def print_frequencia_palavras(frequencia_palavras,num_max):
+    parar = 0
+    for palavra in sorted(frequencia_palavras, key = frequencia_palavras.get,reverse=True):
+        print("{} : {} ".format(palavra,frequencia_palavras[palavra]))
+        parar=parar+1
+        if(parar == num_max):
+            break
+    return 0
 
 #------------------------------------------------------------------------------------------------------
 
