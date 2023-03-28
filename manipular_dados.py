@@ -62,7 +62,7 @@ def freq_palavras(dataset_list):
     #Cria o json de palavras - frequencia
     with open("Freq_palavras.json", "w") as arquivo:     
         json.dump(freq_palavras, arquivo, indent=4,sort_keys=True)
-        
+
     return freq_palavras
 #------------------------------------------------------------------------------------------------------
 def print_frequencia_palavras(frequencia_palavras,num_max):
@@ -81,7 +81,7 @@ def formar_frase_antes(palavra):
     palavras_utilizadas = [palavra]
     cont1 = 0
     while True:
-        if palavra == "" or cont1==30:
+        if palavra == "" or cont1==20:
             break
         palavras_anteriores = vertices_invertidos[palavra]
         if(palavras_anteriores):
@@ -112,7 +112,7 @@ def formar_frase_depois(palavra):
     palavras_utilizadas = [palavra]
     cont1 = 0
     while True:
-        if palavra == "" or cont1==30:
+        if palavra == "" or cont1==20:
             break
         palavras_seguintes = grafo.vertices[palavra]
         if(palavras_seguintes):
