@@ -1,5 +1,5 @@
 import pandas as pd
-import random
+import random,json
 from typing import List
 from nltk.tokenize import word_tokenize
 
@@ -13,6 +13,10 @@ def criar_grafo(frases: List[List[str]]) -> Grafo:
     for frase in frases:
         for i, palavra in enumerate(frase[:-1]):
             grafo.adicionar_aresta(palavra, frase[i+1])
+    
+    #Cria o json do grafo direcional
+    with open("Grafo_palavras.json", "w") as arquivo:     
+        json.dump(grafo.vertices, arquivo)
     return grafo
 
 #------------------------------------------------------------------------------------------------------
@@ -54,7 +58,11 @@ def freq_palavras(dataset_list):
                 freq_palavras[palavra] = freq_palavras[palavra] + 1
             else:
                 freq_palavras[palavra] = 1
-    
+
+    #Cria o json de palavras - frequencia
+    with open("Freq_palavras.json", "w") as arquivo:     
+        json.dump(freq_palavras, arquivo, indent=4,sort_keys=True)
+        
     return freq_palavras
 #------------------------------------------------------------------------------------------------------
 def print_frequencia_palavras(frequencia_palavras,num_max):

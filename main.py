@@ -1,3 +1,4 @@
+
 from manipular_dados import criar_grafo, formar_frase_antes, formar_frase_depois, freq_palavras, print_frequencia_palavras, tratar_dados
 from manipular_dados import vertices_invertidos
 
@@ -25,7 +26,6 @@ def main():
         except:
             print("Palavra não encontrada")
     
-    #print_frequencia_palavras(frequencia_palavras,10) # Mostra na tela as 10 primeiras palavras com maior frequencia
-
+    print_frequencia_palavras(frequencia_palavras,10) # Mostra na tela as 10 primeiras palavras com maior frequencia
 
 main()
